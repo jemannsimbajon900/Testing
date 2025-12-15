@@ -1,0 +1,346 @@
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>🦇 The Batman Archives</title>
+  <style>
+    /* General Styles */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header, footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1c1c1c;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background-color: #1c1c1c;
+    }
+
+    nav ul li {
+      padding: 15px 25px;
+      cursor: pointer;
+      color: #f0f0f0;
+      transition: background 0.3s;
+    }
+
+    nav ul li:hover {
+      background-color: #333;
+    }
+
+    nav ul li.active {
+      background-color: #444;
+      font-weight: bold;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    section {
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    p, ul, li {
+      line-height: 1.6;
+    }
+
+    /* Rogues Gallery */
+    .rogue-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .rogue-card {
+      text-align: center;
+      max-width: 250px;
+    }
+
+    .rogue-card img {
+      height: 250px;
+      width: auto;
+      border-radius: 5px;
+      object-fit: contain;
+    }
+
+    /* Home Images and Button */
+    #home img {
+      margin: 10px;
+      border-radius: 10px;
+      vertical-align: middle;
+    }
+
+    #home button {
+      display: block;
+      margin: 25px auto 40px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #222;
+      color: #f0f0f0;
+      border: 1px solid #555;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    #home button:hover {
+      background-color: #333;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🦇 The Batman Archives</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li class="active" onclick="showTab('home', this)">Home</li>
+      <li onclick="showTab('creator', this)">Creator</li>
+      <li onclick="showTab('rogues', this)">Rogues Gallery</li>
+      <li onclick="showTab('references', this)">References</li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- HOME SECTION -->
+    <section id="home" class="tab active">
+      <h2>Welcome to the Batman Archives</h2>
+      <p>This is your portal into Gotham's darkest secrets. From the legendary Caped Crusader to the twisted villains that haunt the night, everything is cataloged here.</p>
+      <p>“I am vengeance. I am the night. I am Batman.”</p>
+
+      <!-- Batman Images -->
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvCaIuU3KUsnoCj4pyAzVAmZfETW7TRxts6g&s" alt="Batman" width="250">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgJ4CJP4OtubfcElGJSHByWF3ADId4xrgRHCNeA0zENOwfOBe3ci2tw3dD&s=10" alt="Batman02" width="250">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI0kQNqrSIXD7-h3zlfXjJ3tGsDnGlAI-mig&s" alt="Batman03" width="270">
+
+      <!-- ✅ SweetAlert Button moved directly below images -->
+      <button id="home-alert">Learn More About Batman</button>
+
+      <p>Batman, also known as Bruce Wayne, witnessed the murder of his parents Thomas and Martha Wayne, which drove him to fight crime in Gotham. His greatest enemy, the Joker, embodies chaos and challenges Batman's mission of justice. Batman trains rigorously in martial arts, detective skills, and technology, dedicating his life to fighting injustice and protecting the innocent.</p>
+      <p>Origin Story: After losing his parents to a mugging, young Bruce vowed to eradicate crime. He traveled the world, mastering combat, stealth, and strategy, eventually returning to Gotham as the Dark Knight.</p>
+      <p>“I swear by the spirits of my parents to avenge their deaths by spending the rest of my life warring on all criminals.”</p>
+      <p>Haunted by guilt and grief, Bruce traveled the world studying under masters of combat, criminology, escapology, and psychology. From the snowy monasteries of the Himalayas to the dens of criminal underworlds, Bruce honed his mind and body into the ultimate weapon. Bruce struggled on how to combat crime after returning to Gotham, but after a bat flew through his window, he decided to use the bat's image to frighten criminals. Batman's fight against crime is powered by his intelligence and Wayne Enterprises' advanced tech. Batman is both a symbol of justice and a study of trauma. He embodies how pain can be transformed into purpose but also how obsession can consume someone.</p>
+
+      <h1 style="margin-top: 40px; margin-bottom: 20px;">Batman's First Appearance</h1>
+      <p>The story opens with Commissioner James Gordon entertaining his friend Bruce Wayne, a wealthy socialite. When Gordon receives a call about a murder at a chemical plant, Bruce accompanies him seemingly out of idle curiosity. As the police investigate, a mysterious, darkly dressed figure known only as “The Bat-Man” appears in the night. Wearing a gray bodysuit, black cape, cowl, and bat insignia, he stalks the criminals behind the murder, using cunning, stealth, and physical prowess to bring them to justice. In the story's climax, Batman confronts the culprit, a corrupt business partner, and knocks him into a vat of acid, which ends up killing him. Then they reveal to the readers that Bruce Wayne had a dual identity and that he's Batman.</p>
+
+      <h1 style="margin-top: 40px; margin-bottom: 20px;">Joker's First Appearance</h1>
+      <p>Introducing Batman's hardest opponent and one of the most iconic villains in history: the Joker. While he might not look physically strong, he often outwits Batman in their encounters. He was first introduced in <strong>Batman #1</strong> in the Spring of 1940, hijacking a radio broadcast to announce: “At exactly midnight tonight, I will kill Henry Claridge and steal the Claridge Diamond! The Joker has spoken!” The police rushed to protect Claridge, locking him inside his room, but when midnight struck, he was found dead and the diamond stolen. Joker remained mysterious until Batman discovered he was using chemical knowledge to commit his crimes. Since then, the Joker has become one of Batman’s toughest and most unpredictable enemies, cementing his place in comic book history.</p>
+      
+      <h1 style="margin-top: 40px; margin-bottom: 20px;">Penguin's First Appearance</h1>
+      <p>He first appeared plotting to steal the Waddle Meyer Faberge Egg, he had thugs helping him to steal it and so they infiltrate the museum and successfully steals it.
+      But not for long since Batman tracks Penguin's location while Penguin was trying to escape to his basement and tried to trap Batman in the basement and thought he successfully escaped but Batman got to him and recovered the Faberge Egg which was a valuable asset at the museum and Penguin gets captured.
+      According to our research he appeared in several episodes in the Batman Animated Series,thats part of reason we included him in the rogue gallery but not necessarily the main reason.</p>
+      <h1 style="margin-top: 40px; margin-bottom: 20px;">Mr Freeze First Appearance</h1>
+      <p>Mr Freeze major appearance was in the Batman Animated Series,although he appeared before one of his defining tragic backstory didnt appear until the Batman Animated Series which means his story was reinterpreted in a different light in this significantly altering version.
+      He was a scientist who tried to cure his wife named Nora using cryogenic technology however an accident happened during one of his experiments during an altercation with security at the lab a coolant explosion happened which made him Mr Freeze as his body temperature had reached freezing level and he had to wear a suit to regulate his body temperature
+      He plots for revenge against those people because he felt betrayed and his motivation was to saving her wife no matter what. </p>
+    <h1 style="margin-top: 40px; margin-bottom: 20px;">Catwoman First Appearance</h1>
+    <P>Catwoman was introduced as a jewel thief and she was targetting those wealthy people and stealing their valuable items or possessions using her agility,stealth and planning by observing the place first and use it to her advantage,Batman investigated her to learn how she does her crimes and it led to their first clash, Catwoman was trying to flirt with Batman to make him lose focus which was effective and it ultimately led to her escaping that time.It shows how clever the character is and their traits that make them unique to others and it surely worked in her favor.</P>
+    <h1 style="margin-top: 40px; margin-bottom: 20px;">Scarecrow First Appearance</h1>
+    Dr. Jonathan Crane (the man behind the Scarecrow persona) is introduced as a professor at Gotham University, where he teaches psychology. He's presented as a somewhat unassuming academic, though his obsession with fear and how it affects the human mind is immediately apparent. His true nature as the villainous Scarecrow,
+Crane’s transformation into the Scarecrow is tied to his twisted views on fear. He is obsessed with experimenting on people using fear toxins to induce terror, and he wears a frightening scarecrow costume to embody his warped understanding of fear using chemical formula
+    </section>
+
+    <!-- CREATOR SECTION -->
+    <section id="creator" class="tab">
+      <h2>The Creators</h2>
+      <p><strong>Batman</strong> was created in 1939 by <strong>Bob Kane</strong> and <strong>Bill Finger</strong>.</p>
+      <p>Over the decades, many legendary writers and artists shaped the Batman mythos, including Frank Miller, Scott Snyder, Greg Capullo, Jeph Loeb, and many more.</p>
+      <p>In the late 1930s, Kane was hired by Detective Comics (which would eventually be known as DC Comics) and was tasked with creating a new superhero to compete with the success of Superman, who had debuted in Action Comics #1 in 1938. Kane came up with the initial design and concept for Batman.</p>
+      <p><h1>DC Comics</h1>
+      <p>When Batman was created in 1939, Bob Kane and Bill Finger were working for Detective Comics, Inc., which would later be known as DC Comics. At the time, the company was primarily focused on publishing comic books, and its most popular title was Detective Comics, where Batman first appeared in Detective Comics #27 in May 1939 and in 1967 DC Comics became officialy a part of Warner Bros through the acquisition of its parent company, National Periodical Publications.</p>
+      <p>Kane is the one credited with coming up with the basic concept of a caped crusader who fought crime in Gotham City. He designed Batman's initial look, including the costume, the bat-like cowl, and the overall appearance.</p>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4kdlcIIFkcEPeA6yALDloig6OvwsSHz6ZbO5kmoZdT4tsd16J4ApnU8w&s=10" alt="Batman-sketch" style="width: 250px; margin-top: 20px; border-radius: 10px;">
+      <p>The company asked artists to come up with another superhero to capture that same excitement. Bob Kane, a young comic book artist came up with idea and concept of Batman back in 1939. However the original design had different costume design like what the image above shows it looks a bit like Superman with wings, the color scheme was a huge difference. While Bill Finger suggested several changes to the design that would be recognizable these days made the suit color dark and the character more intimidating and made him cool as a superhero and he had a very hard upbringing which unlike other superheroes. They both worked together drawing and thinking of ways to enhance the visual of the superhero although there are debates as to who deserved more credit on making Batman they both worked hard for it and making Batman isn't something that anyone can say other than them.</p>   
+      <h1>Bob Kane's Motivation</h1>
+      <p>Bob Kane was young at the time and he got inspiration from others like Zorro which also has the concept of cape and a costume and so using that inspiration he made some sketches and eventually he met Bill Finger made it work
+      According to Bob Kane  “Zorro was certainly a major influence the idea of a masked man leading a double life."
+      He also got some inspiration from The Shadow which was a mysterious detective
+      "I patterned Batman after The Shadow.”
+      Also from the Leonardo Da Vinci sketches which was the bat-wing glider and The Bat Whispers which was a film
+      When it comes to comics,he got inspired by how successfull Superman was at the time 
+      “I wanted to create a hero who could exist in the real world a man without superpowers.” </p>
+      <h1>Creators After Batman's Success</h1>
+      <p>Kane was officially credited as Batman’s sole creator although character development was done by others like Bill Finger , but he continued to receive royalties and work on Batman-related projects. DC officially recognized Bill Finger as co-creator.Bill Finger sadly died in January 1974 without getting significant royalties which affected him financially during his lifetime.</p>
+    </section>
+
+    <!-- ROGUES GALLERY -->
+    <section id="rogues" class="tab">
+      <h2>Rogues Gallery</h2>
+      <div class="rogue-grid">
+        <div class="rogue-card">
+          <img src="https://upload.wikimedia.org/wikipedia/en/9/98/Joker_%28DC_Comics_character%29.jpg" alt="Joker">
+          <p>Joker</p>
+        </div>
+        <div class="rogue-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo7eWZUujDODz1bxG9dmI8YkNA44A60B3giPRL0K-Zoec-jpUNjcH2xTF6&s=10" alt="Penguin">
+          <p>Penguin</p>
+        </div>
+        <div class="rogue-card">
+          <img src="https://icons.iconseeker.com/png/fullsize/the-batman-vol-1/mr-freeze.png" alt="Mr. Freeze">
+          <p>Mr. Freeze</p>
+        </div>
+        <div class="rogue-card">
+          <img src="https://as2.ftcdn.net/jpg/14/04/05/13/1000_F_1404051346_5viiZwVwYXNPHs5m4JqjNloXAWbv2jQF.jpg" alt="Catwoman">
+          <p>Catwoman</p>
+        </div>
+        <div class="rogue-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfA9ALCjRkQHoEW7IWzuyKYGXpJ5VKhvhiH4ONpiNBNaXWL63XV6n--m8&s=10" alt="Scarecrow">
+          <p>Scarecrow</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERENCES -->
+<section id="references" class="tab">
+  <h2>References</h2>
+  <ul id="referenceList" style="margin-top: 20px;">
+    <li>Detective Comics #27 (1939)</li>
+    <li>Detective Comics #33 (1939)</li>
+    <li>Batman: Year One (1987)</li>
+    <li>The Killing Joke (1988)</li>
+    <li>The Long Halloween (1996-1997)</li>
+    <li>Arkham Asylum: A Serious House on Serious Earth (1989)</li>
+    <li>Batman: The Animated Series (1992 - 1995)</li>
+  
+    <h3 style="margin-top: 40px;">📝 Submit a Concern or Feedback</h3>
+  <p>Have any concerns, issues, or feedback? Let us know below.</p>
+
+   <textarea id="concernInput" 
+          placeholder="Type your concern here..."
+          style="width: 100%; max-width: 500px; height:120px; padding:10px; border-radius:8px; border:1px solid #555; background:#1c1c1c; color:white;">
+   </textarea>
+
+   <br>
+
+   <button id="concernSubmitBtn" 
+        style="padding:10px 20px; margin-top:10px; background:#222; color:#fff; border:1px solid #444; border-radius:5px; cursor:pointer;">
+         Submit Concern
+        </button>
+
+   <ul id="concernList" style="margin-top: 20px;"></ul>
+   </ul>
+   </section>
+
+   </main>
+
+   <footer>
+    <p>© 2025 The Gotham Index. All rights reserved.</p>
+   </footer>
+
+   <script>
+    function showTab(tabId, element) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('nav ul li').forEach(item => item.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      element.classList.add('active');
+    }
+
+    // SweetAlert button functionality
+    document.getElementById('home-alert').addEventListener('click', function() {
+      Swal.fire({
+        title: 'Batman Fun Fact',
+        text: 'Did u know that Batman have mastered 127 different martial art styles including Krav Maga and Judo?',
+        icon: 'info',
+        confirmButtonText: 'Got it!'
+      });
+    });
+    
+    document.getElementById('concernSubmitBtn').addEventListener('click', function () {
+  const concernText = document.getElementById('concernInput').value.trim();
+
+  if (concernText === '') {
+    Swal.fire({
+      icon: 'error',
+      title: 'Empty Concern',
+      text: 'Please type something before submitting.',
+    });
+    return;
+  }
+
+  // Send concern to PHP file
+  fetch('save_concern.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: 'concern=' + encodeURIComponent(concernText)
+  })
+  .then(response => response.text())
+  .then(result => {
+    if(result === 'success'){
+      Swal.fire({
+        icon: 'success',
+        title: 'Thank You!',
+        text: 'Your concern has been submitted.',
+      });
+      document.getElementById('concernInput').value = '';
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Something went wrong: ' + result,
+      });
+    }
+  })
+  .catch(err => {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Failed to submit concern: ' + err,
+    });
+  });
+});
+
+
+
+  </script>
+
+</body>
+</html>
